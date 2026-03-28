@@ -1,0 +1,20 @@
+def is_prima(angka):
+    if angka < 2:
+        return False
+    for i in range(2, int(angka ** 0.5) + 1):
+        if angka % i == 0:
+            return False
+    return True
+
+n = int(input("Masukkan nilai n: "))
+
+prima_terdekat = None
+for i in range(n - 1, 1, -1):
+    if is_prima(i):
+        prima_terdekat = i
+        break
+
+if prima_terdekat:
+    print(f"Prima terdekat < {n} adalah {prima_terdekat}")
+else:
+    print(f"Tidak ada bilangan prima yang lebih kecil dari {n}")
